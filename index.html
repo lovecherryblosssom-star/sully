@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Slider</title>
+</head>
+<body>
+
+  <img id="slideImage" src="Cute cat.jpeg" width="400">
+  <br><br>
+  <button onclick="previousImage()">Previous</button>
+  <button onclick="nextImage()">Next</button>
+
+  <script>
+    // 1. Array of image sources
+    var images = ["Cute cat.jpeg", "cat.jpeg", "kitty.jpeg", "meow.jpeg", "Sol ☼ flower.jpeg"];
+
+    // 2. Index variable, starts at 0 (first image)
+    var index = 0;
+
+    // 3. Function for Next button
+    function nextImage() {
+      index = index + 1;          // move forward
+
+      if (index > images.length - 1) {  // if past last image
+        index = 0;                      // go back to first
+      }
+
+      document.getElementById("slideImage").src = images[index];
+    }
+
+    // 4. Function for Previous button
+    function previousImage() {
+      index = index - 1;          // move backward
+
+      if (index < 0) {            // if before first image
+        index = images.length - 1;      // go to last
+      }
+
+      document.getElementById("slideImage").src = images[index];
+    }
+  </script>
+
+</body>
+</html>
